@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Flower</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #0f172a, #312e81, #7e22ce);
+      color: white;
+      overflow: hidden;
+    }
+
+    .container {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 55px;
+      margin-bottom: 10px;
+      background: linear-gradient(90deg, #f9a8d4, #fef08a);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    p {
+      font-size: 20px;
+      color: #e9d5ff;
+      margin-bottom: 40px;
+    }
+
+    .flower {
+      position: relative;
+      width: 220px;
+      height: 220px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .petal {
+      position: absolute;
+      width: 95px;
+      height: 130px;
+      background: linear-gradient(135deg, #ff4ecd, #8b5cf6);
+      border-radius: 50% 50% 45% 45%;
+      left: 62px;
+      top: 40px;
+      transform-origin: 48px 70px;
+      box-shadow: 0 0 30px #ec4899;
+    }
+
+    .petal:nth-child(1) { transform: rotate(0deg); }
+    .petal:nth-child(2) { transform: rotate(60deg); }
+    .petal:nth-child(3) { transform: rotate(120deg); }
+    .petal:nth-child(4) { transform: rotate(180deg); }
+    .petal:nth-child(5) { transform: rotate(240deg); }
+    .petal:nth-child(6) { transform: rotate(300deg); }
+
+    .center {
+      position: absolute;
+      width: 65px;
+      height: 65px;
+      background: radial-gradient(circle, #fff59d, #f59e0b);
+      border-radius: 50%;
+      left: 78px;
+      top: 78px;
+      z-index: 10;
+      box-shadow: 0 0 35px #facc15;
+    }
+
+    button {
+      border: none;
+      padding: 14px 30px;
+      border-radius: 30px;
+      background: linear-gradient(90deg, #ec4899, #8b5cf6);
+      color: white;
+      font-size: 17px;
+      cursor: pointer;
+      box-shadow: 0 8px 25px rgba(236,72,153,.4);
+      transition: .3s;
+    }
+
+    button:hover {
+      transform: scale(1.08);
+    }
+
+    #message {
+      margin-top: 20px;
+      color: #fde68a;
+      font-size: 18px;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-15px) rotate(3deg); }
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 40px;
+      }
+
+      p {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>🌸 AI Flower</h1>
+
+    <p>A beautiful flower created with the power of AI.</p>
+
+    <div class="flower">
+      <div class="petal"></div>
+      <div class="petal"></div>
+      <div class="petal"></div>
+      <div class="petal"></div>
+      <div class="petal"></div>
+      <div class="petal"></div>
+      <div class="center"></div>
+    </div>
+
+    <button onclick="showMessage()">✨ Generate Flower</button>
+
+    <div id="message"></div>
+  </div>
+
+  <script>
+    function showMessage() {
+      const messages = [
+        "🌷 Your AI flower is blooming!",
+        "🌸 Beauty powered by AI!",
+        "🌺 A new flower has been generated!",
+        "💜 Welcome to the AI Garden!"
+      ];
+
+      const random =
+        messages[Math.floor(Math.random() * messages.length)];
+
+      document.getElementById("message").textContent = random;
+    }
+  </script>
+
+</body>
+</html>
